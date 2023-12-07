@@ -1,4 +1,4 @@
-from app import app, db, bcrypt
+from app import app, db, bcrypt, login_manager
 import secrets
 import os
 import json
@@ -7,7 +7,6 @@ from app.models import Users, addresses, payment_details, items, orders, cart_it
 from flask import render_template, url_for, redirect, flash, request
 from app.forms import loginForm, registerForm, sellItemForm, editAccountForm
 from flask_login import login_user, current_user, logout_user, login_required
-
 
 @app.route('/')
 @app.route('/index')

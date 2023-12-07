@@ -89,8 +89,6 @@ class cart_items(db.Model):
 # This is the join table
 # A user can purchase many items
 # An item can be purchased by many users
-
-
 class orders(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     item_id = db.Column(db.Integer, db.ForeignKey('items.id'))

@@ -1,4 +1,7 @@
 {% extends "boilerPlate.html" %}
+{% block head %}
+<script src="{{ url_for('static', filename='home.js') }}"></script>
+{% endblock %}
 {% block content %}
 <div class="mx-5 p-5 l2_background bordered my-3">
     <h1 class="extra-large-text">My Order History</h1>
