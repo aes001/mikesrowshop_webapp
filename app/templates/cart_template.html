@@ -1,0 +1,69 @@
+{% extends "boilerPlate.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='genericTable.css') }}">
+{% endblock %}
+{% block content %}
+<div class="l2_background bordered mx-5 p-5 d-flex flex-row justify-content-between mt-3 overflow-scroll">
+    <div class="d-flex flex-column align-items-start">
+        <p class="stand-out-text pb-4">Shipping Information</p>
+        <p class="remove-line-height pb-3">{{ user.first_name }} {{ user.last_name }}</p>
+        <p class="remove-line-height pb-3">{{ user.addresses.street_address1 }}</p>
+        <p class="remove-line-height pb-3">{{ user.addresses.street_address2 }}</p>
+        <p class="remove-line-height pb-3">{{ user.addresses.city }}</p>
+        <p class="remove-line-height pb-3">{{ user.addresses.zip_code }}</p>
+        <p class="remove-line-height pb-3">{{ user.addresses.country }}</p>
+    </div>
+    <div class="vertical-line mx-3"></div>
+    <div class="d-flex flex-column align-items-end">
+        <p class="stand-out-text pb-4">Payment Information</p>
+        <p class="remove-line-height  pb-3">{{ user.payments.card_name }}</p>
+        <p class="remove-line-height  pb-3">{{ user.payments.card_number }}</p>
+        <p class="remove-line-height  pb-3">{{ user.payments.card_exp }}</p>
+        <p class="remove-line-height  pb-3">{{ user.payments.card_cvv }}</p>
+    </div>
+</div>
+
+<div class="l2_background bordered p-5 my-3 overflow-scroll mx-5 d-flex flex-column">
+    {% if products_len != 0 %}
+    <table>
+        <thead>
+            <th>Item Id</th>
+            <th>Name</th>
+            <th>Shipping Method</th>
+            <th class="align-text-right">Shipping Price</th>
+            <th class="align-text-right">Quantity</th>
+            <th class="align-text-right">Price perunit</th>
+            <th class="align-text-right">Total price</th>
+            <th class="align-text-right">Action</th>
+        </thead>
+        <tbody>
+            {% for (rows, products, totals) in items_in_cart %}
+            <tr class="roofed">
+                <td>{{ rows.item_id }}</td>
+                <td>{{ products.name }}</td>
+                <td>{{ products.shipping_method }}</td>
+                <td class="numbers align-text-right">£{{ products.shipping_price }}</td>
+                <td class="numbers align-text-right">{{ rows.quantity }}</td>
+                <td class="numbers align-text-right">£{{ products.price }}</td>
+                <td class="numbers align-text-right">£{{ totals }}</td>
+                <td class="d-flex flex-row justify-content-end walled-left">
+                <a href="{{url_for('remove_from_basket', item_id=rows.item_id)}}" class="btn btn-primary rounded danger-button-accent d-flex justify-content-center align-items-center flex-row square"><img src="{{ url_for('static', filename='icons/Smock_Delete_18_N.svg')}}" alt="Delete button"></a>
+            </tr>
+            {% endfor %}
+            <tr class="roofed">
+                <td colspan="6" class="align-text-right bold">Total</td>
+                <td class="numbers align-text-right bold">£{{ total }}</td>
+                <td class="walled-left"></td>
+            </tr>
+        </tbody>
+    </table>
+    {% else %}
+    <p class="stand-out-text">Your cart is empty</p>
+    {% endif %}
+</div>
+{% if products_len != 0 %}
+<div class="mx-5 p-5 d-flex flex-row justify-content-end">
+    <a href="{{ url_for('checkout') }}" class="btn rounded-pill action-button">Checkout</a>
+</div>
+{% endif %}
+{% endblock %}

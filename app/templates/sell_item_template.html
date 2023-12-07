@@ -1,0 +1,134 @@
+{% extends "boilerPlate.html" %}
+{% block content %}
+<div>
+    <div class="div l2_background bordered p-5 mt-3 mt-sm-5">
+        <div class="container-sm">
+            <form method="POST" action="" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    <legend class="extra-large-text mb-5">Sell an Item</legend>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.name.label }}
+                        {% if form.name.errors %}
+                        {{ form.username(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.name(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.price.label }}
+                        {% if form.price.errors %}
+                        {{ form.price(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.price.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.price(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.description.label }}
+                        {% if form.description.errors %}
+                        {{ form.description(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.description.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.description(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.category.label }}
+                        {% if form.category.errors %}
+                        {{ form.category(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.category.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.category(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.location.label }}
+                        {% if form.location.errors %}
+                        {{ form.location(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.location.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.location(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.stock_quantity.label }}
+                        {% if form.stock_quantity.errors %}
+                        {{ form.stock_quantity(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.stock_quantity.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.stock_quantity(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.shipping_method.label }}
+                        {% if form.shipping_method.errors %}
+                        {{ form.shipping_method(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.shipping_method.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.shipping_method(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.shipping_price.label }}
+                        {% if form.shipping_price.errors %}
+                        {{ form.shipping_price(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.shipping_price.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.shipping_price(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.image.label }}
+                        {{ form.image(class="mt-3 form-control-file") }}
+                        {% if form.image.errors %}
+                            {% for error in form.image.errors %}
+                            <span>{{ error }}</span><br>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div class="d-flex flex-row justify-content-end align-items-center">
+                    <div class="d-flex flex-row align-items-center justify-content-sm-end justify-content-between mt-5">
+                        <a href="javascript:history.back()" class="btn bold rounded-pill action-button-white-accent d-flex flex-row align-items-center justify-content-center me-3">Cancel</a>
+                        {{ form.submit(class="btn rounded-pill action-button px-4") }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

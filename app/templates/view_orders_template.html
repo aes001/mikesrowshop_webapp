@@ -1,0 +1,27 @@
+{% extends "boilerPlate.html" %}
+{% block content %}
+<div class="mx-5 p-5 l2_background bordered my-3">
+    <h1 class="extra-large-text">My Order History</h1>
+</div>
+{% for (item, seller, order_details) in items %}
+<div class="mx-5 l2_background bordered d-flex flex-lg-row flex-column align-items-lg-center align-items-start mb-3">
+    <img class="img-fluid mb-4 mb-lg-0 align-self-lg-start align-self-center" src="static/images/{{ item.image }}" alt="item image" class="me-5">
+    <div class="d-flex flex-column px-sm-5 px-4 align-items-start justify-content-center item-details">
+        <p>Purchased on {{ order_details.date }}, Order ID: {{ order_details.id }}, Quantity: {{ order_details.quantity }}</p>
+        <p class="extra-large-text">£{{ item.price }}</p>
+        <h2 class="stand-out-text">{{ item.name }}</h2>
+        <p>{{ item.description }}</p>
+        <p class="remove-line-height"><img class="me-2" src="{{ url_for('static', filename='icons/Smock_Box_18_N.svg') }}" alt="Stock icon">{{ item.stock_quantity }} stock left available</p>
+        <p class="remove-line-height"><img class="me-2" src="{{ url_for('static', filename='icons/Smock_Ship_18_N.svg') }}" alt="Shipping icon">{{ item.shipping_method }}</p>
+        <p class="remove-line-height"><img class="me-2" src="{{ url_for('static', filename='icons/Smock_Location_18_N.svg') }}" alt="Location icon">{{ item.location }}</p>
+        <p class="remove-line-height"><img class="me-2" src="{{ url_for('static', filename='icons/Smock_User_18_N.svg') }}" alt="User icon">@{{ seller.username }}</p>
+        <hr class="button-divider-hr mb-4">
+        {% if item.stock_quantity == 0 %}
+            <p class="align-self-end mb-5 mb-lg-0 bold">Out of stock</p>
+        {% else %}
+            <a href="#" class="btn rounded-pill action-button px-4 align-self-end mb-5 mb-lg-0 add-to-basket-button" data='{"item_id":{{ item.id }}, "user_id":{{current_user.id}}}' aria-disabled="false">Add to cart</a>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

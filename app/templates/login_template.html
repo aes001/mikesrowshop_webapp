@@ -1,0 +1,54 @@
+{% extends "boilerPlate.html" %}
+{% block content %}
+<div>
+    <div class="div l2_background bordered p-5 mt-5">
+        <div class="container-sm">
+            <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    <legend class="extra-large-text mb-4">Login</legend>
+                    <div class="">
+                        <p class="mb-5">New user? <a class="remove-underline" href="{{ url_for('register') }}">Create an account here</a></p>
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.username.label }}
+                        {% if form.username.errors %}
+                        {{ form.username(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.username(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.password.label }}
+                        {% if form.password.errors %}
+                        {{ form.password(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.password(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="mt-4 bold">
+                        {{ form.remember(class="l2_background floor-only py-2") }}
+                        {{ form.remember.label }}
+                    </div>
+                </fieldset>
+                <div class="d-flex flex-row justify-content-end align-items-center">
+                    <div class="d-flex flex-row align-items-center justify-content-sm-end justify-content-between mt-5">
+                        <a href="javascript:history.back" class="btn bold rounded-pill action-button-white-accent d-flex flex-row align-items-center justify-content-center me-3">Cancel</a>
+                        {{ form.submit(class="btn rounded-pill action-button px-4") }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

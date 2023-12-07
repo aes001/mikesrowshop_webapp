@@ -1,0 +1,128 @@
+{% extends "boilerPlate.html" %}
+{% block content %}
+<div>
+    <div class="div l2_background bordered p-5 mt-3 mt-sm-5 my-5">
+        <div class="container-sm">
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    <legend class="extra-large-text mb-4">Register</legend>
+                    <div class="">
+                        <p class="">Already have an account? <a class="remove-underline" href="{{ url_for('login') }}">Login here</a></p>
+                    </div>
+                    <div class="my-5 stand-out-text"><p>Personal Information</p></div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.first_name.label }}
+                        {% if form.first_name.errors %}
+                        {{ form.first_name(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.first_name.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.first_name(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.last_name.label }}
+                        {% if form.last_name.errors %}
+                        {{ form.last_name(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.last_name.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.last_name(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.username.label }}
+                        {% if form.username.errors %}
+                        {{ form.username(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.username(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.password.label }}
+                        {% if form.password.errors %}
+                        {{ form.password(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.password(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.confirm_password.label }}
+                        {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class="l2_background floor-only py-2 is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.confirm_password.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.confirm_password(class="l2_background floor-only py-2") }}
+                        {% endif %}
+                    </div>
+                    <div class="my-5 stand-out-text"><p>Address Information</p></div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.street.label }}
+                        {{ form.street(class="l2_background floor-only py-2") }}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.street2.label }}
+                        {{ form.street2(class="l2_background floor-only py-2") }}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.city.label }}
+                        {{ form.city(class="l2_background floor-only py-2") }}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.zip.label }}
+                        {{ form.zip(class="l2_background floor-only py-2") }}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.country.label }}
+                        {{ form.country(class="l2_background floor-only py-2") }}
+                    </div>
+                    <div class="my-5 stand-out-text"><p>Card Information</p></div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.card_name.label }}
+                        {{ form.card_name(class="l2_background floor-only py-2") }}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.card_number.label }}
+                        {{ form.card_number(class="l2_background floor-only py-2") }}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.card_exp.label }}
+                        {{ form.card_exp(class="l2_background floor-only py-2") }}
+                    </div>
+                    <div class="d-flex flex-column mt-3 bold">
+                        {{ form.card_cvv.label }}
+                        {{ form.card_cvv(class="l2_background floor-only py-2") }}
+                    </div>
+                </fieldset>
+                <div class="d-flex flex-row justify-content-end align-items-center">
+                    <div class="d-flex flex-row align-items-center justify-content-sm-end justify-content-between mt-5">
+                        <a href="javascript:history.back()" class="btn bold rounded-pill action-button-white-accent d-flex flex-row align-items-center justify-content-center me-3">Cancel</a>
+                        {{ form.submit(class="btn rounded-pill action-button px-4") }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

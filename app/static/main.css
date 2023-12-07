@@ -1,0 +1,318 @@
+/**
+ * Created by AES
+ * CSS Library based on a rip-off of Adobe's Spectrum CSS
+ * https://opensource.adobe.com/spectrum-css/
+ */
+
+/*
+ * Code from w3 schools on how to disable the spinners on number inputs
+*/ 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+/* End of code from w3 schools on how to disable the spinners on number inputs */
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+:root{
+    --level1-color: #1A1A1A;
+    --level2-color: #1E1E1E;
+    --border-color: #2D2D2D;
+    --main-action: #0265DC;
+    --main-action-hover: #024494;
+    --danger-action: #ff3300;
+    --danger-action-hover: #630707;
+    --border-radius: 2px;
+    --font-size: 17px;
+    --font-large: 25px;
+    --font-extra-large: 50px;
+    font-family: Roboto, sans-serif;
+    --square-size: 2.3vw;
+}
+
+.l1_background{
+    background-color: var(--level1-color);
+    color: #FFFFFF;
+}
+
+.l2_background{
+    background-color: var(--level2-color);
+    color: #FFFFFF;
+}
+
+body{
+    background-color: var(--level1-color);
+    color: #FFFFFF;
+    font-size: var(--font-size);
+}
+
+.bordered{
+    border: var(--border-color) solid var(--border-radius);
+}
+
+.remove-line-height{
+    line-height: 0;
+}
+
+.normal-line-height{
+    line-height: 1;
+}
+
+.stand-out-text{
+    font-size: var(--font-large);
+    font-weight: bold;
+}
+
+.numbers{
+    font-family:"Roboto Mono", monospace;
+}
+
+.extra-large-text{
+    font-size: var(--font-extra-large);
+    font-weight: bold;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.button-divider-hr{
+    height: var(--border-radius);
+    width: 100%;
+    background-color: var(--border-color);
+    color: var(--border-color);
+    opacity: 1;
+}
+
+.centered{
+    text-align: center;
+}
+
+.button-size-regular{
+    width: 33.33333333333333%;
+}
+
+.nav-button{
+    height: 100%;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.button-underlined{
+    border-bottom: var(--border-color) solid 5px;
+}
+
+.danger-button-accent{
+    background-color: var(--danger-action) alpha(0.5);
+    border-color: var(--danger-action);
+    color: var(--danger-action);
+}
+
+.action-button-accent{
+    background-color: var(--main-action) alpha(0.5);
+    border-color: var(--main-action);
+    color: var(--main-action);
+    font-weight: bold;
+}
+
+.action-button{
+    background: var(--main-action);
+    border-color: var(--main-action);
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.action-button:hover{
+    background: var(--main-action-hover);
+    border-color: var(--main-action-hover);
+    color: #FFFFFF;
+}
+
+.square{
+    width: var(--square-size);
+    height: var(--square-size);
+}
+
+.danger-button-accent:hover{
+    background: var(--danger-action-hover);
+    border-color: var(--danger-action-hover);
+    color: var(--danger-action);
+}
+
+.action-button-accent:hover{
+    background: var(--main-action-hover);
+    border-color: var(--main-action-hover);
+    color: #FFFFFF;
+}
+
+.action-button-white-accent{
+    background-color: var(--main-action) alpha(0.5);
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+.action-button-white-accent:hover{
+    background: #F1F1F1;
+    border-color: #F1F1F1;
+    color: var(--level2-color);
+}
+
+.danger-button{
+    background: var(--danger-action);
+    border-color: var(--danger-action);
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.danger-button:hover{
+    background: var(--danger-action-hover);
+    border-color: var(--danger-action-hover);
+    color: #FFFFFF;
+}
+
+.action-button-accent-white:focus{
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    color: var(--level1-color);
+}
+
+.align-text-right{
+    text-align: right;
+}
+
+.float-right{
+    float: right;
+}
+
+.align-stretch{
+    align-items: stretch;
+}
+
+.margin-top-1{
+    margin-top: 1vw;
+}
+
+.roofed{
+    border-top: 1px solid var(--border-color);
+}
+
+.floored{
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-floor{
+    border-bottom: var(--border-radius) solid var(--border-color);
+}
+
+.walled-left{
+    border-left: 1px solid var(--border-color);
+}
+
+.walled-right{
+    border-right: 1px solid var(--border-color);
+}
+
+.walled{
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+
+.floor-only{
+    border-bottom: 2px solid var(--border-color);
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.floor-only:focus{
+    outline: none;
+    border-bottom: 3px solid var(--main-action);
+}
+
+.width-25vw{
+    width: 25vw;
+}
+
+.width-40vw{
+    width: 40vw;
+}
+
+.no-border{
+    border: 0px;
+}
+
+.bootstrap-border-color-overriden{
+    border-color: var(--border-color);
+}
+
+.sroff-0-flex-basis{
+    flex-basis: 0;
+}
+
+.remove-text-decoration{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.remove-underline{
+    text-decoration: none;
+}
+
+.store-logo{
+    width: auto;
+    height: 2em;
+}
+
+.alert-success{
+    background-color: var(--level2-color);
+    color: #008F5D;
+    padding: 1vw;
+    margin-bottom: 1vw;
+    border-radius: var(--border-radius);
+    border-color: var(--border-color);
+    font-weight: bold;
+}
+
+.alert-danger{
+    background-color: var(--level2-color);
+    color: var(--danger-action);
+    padding: 1vw;
+    margin-bottom: 1vw;
+    border-radius: var(--border-radius);
+    border-color: var(--border-color);
+    font-weight: bold;
+}
+
+.close-button-override{
+    color: #FFFFFF;
+}
+
+.resized-image{
+    width: auto;
+    height: 100%;
+}
+
+.item-details{
+    width: 100%;
+    height: auto;
+}
+
+.vertical-line {
+    border-left: var(--border-radius) solid var(--border-color);
+}
+
+.overflow-scroll{
+    overflow: scroll;
+}
