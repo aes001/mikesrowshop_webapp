@@ -1,4 +1,5 @@
 # Flask Web App for a Boating Supplies Shop
+A Flask only webapp for a boating supplies shop.
 
 ## Requirements
 1. Python
@@ -19,3 +20,7 @@ pip install -r requirements.txt
 python run.py
 ```
 After that visit the address of where the site is hosted locally (usually 127.0.0.1:5000).
+You can login using:
+Username: admin
+password: admin
+or create your own account.
